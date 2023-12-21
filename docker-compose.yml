@@ -21,9 +21,10 @@ services:
       - PAPERLESS_FILENAME_FORMAT={created}-{correspondent}-{title}
       - PAPERLESS_OCR_LANGUAGE=deu
       - PAPERLESS_OCR_LANGUAGES=eng deu
-      - PAPERLESS_SECRET_KEY=e11fl1oa-*123l8p)(06fj4ukrlo+n7k&q5+$1md7i+mge=e55
       - PAPERLESS_TIME_ZONE=Europe/Berlin
       - PAPERLESS_URL=https://archiv.michaelsen.io
+    env_file:
+      - stack.env
     volumes:
       - /home/smic/apps/paperless/consume:/usr/src/paperless/consume
       - /home/smic/apps/paperless/data:/usr/src/paperless/data
