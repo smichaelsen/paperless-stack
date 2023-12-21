@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  redis:
+    container_name: paperless_redis
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+
+  paperless:
+    image: paperlessngx/paperless-ngx:latest
+    restart: always
+    depends_on:
+      - redis
+    ports:
+      - "8000:8000"
+    environment:
+      - PAPERLESS_REDIS=redis://paperless_redis:6379/0
+      - PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE=1
+      - PAPERLESS_FILENAME_FORMAT={created}-{correspondent}-{title}
+      - PAPERLESS_OCR_LANGUAGE=deu
+      - PAPERLESS_OCR_LANGUAGES=eng deu
+      - PAPERLESS_SECRET_KEY=e11fl1oa-*123l8p)(06fj4ukrlo+n7k&q5+$1md7i+mge=e55
+      - PAPERLESS_TIME_ZONE=Europe/Berlin
+      - PAPERLESS_URL=https://archiv.michaelsen.io
+    volumes:
+      - /home/smic/apps/paperless/consume:/usr/src/paperless/consume
+      - /home/smic/apps/paperless/data:/usr/src/paperless/data
+      - /home/smic/apps/paperless/media:/usr/src/paperless/media
+      - /home/smic/apps/paperless/export:/usr/src/paperless/export
