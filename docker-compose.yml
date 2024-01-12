@@ -26,7 +26,7 @@ services:
     env_file:
       - stack.env
     volumes:
-      - /home/smic/apps/paperless/consume:/usr/src/paperless/consume
-      - /home/smic/apps/paperless/data:/usr/src/paperless/data
-      - /home/smic/apps/paperless/media:/usr/src/paperless/media
-      - /home/smic/apps/paperless/export:/usr/src/paperless/export
+      - /home/smic/usbdrive/paperless/consume:/usr/src/paperless/consume
+      - /home/smic/usbdrive/paperless/data:/usr/src/paperless/data
+      - /home/smic/usbdrive/paperless/media:/usr/src/paperless/media
+      - /home/smic/usbdrive/paperless/paperless/export:/usr/src/paperless/export
