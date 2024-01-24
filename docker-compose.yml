@@ -22,7 +22,6 @@ services:
       - PAPERLESS_OCR_LANGUAGE=deu
       - PAPERLESS_OCR_LANGUAGES=eng deu
       - PAPERLESS_TIME_ZONE=Europe/Berlin
-      - PAPERLESS_URL=https://archiv.michaelsen.io
     env_file:
       - stack.env
     volumes:
